@@ -47,17 +47,17 @@ export default function CodeEditor({
     fontSize,
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
-    wordWrap: "on",
-    lineNumbers: "on",
+    wordWrap: "on" as "on" | "off" | "wordWrapColumn" | "bounded",
+    lineNumbers: "on" as "on" | "off" | "relative" | "interval" | ((lineNumber: number) => string),
     tabSize: 2,
     automaticLayout: true,
     quickSuggestions: true,
     formatOnPaste: true,
     formatOnType: true,
-    autoClosingBrackets: "always",
-    autoClosingQuotes: "always",
-    autoIndent: "full",
-    renderWhitespace: "selection",
+    autoClosingBrackets: "always" as "always" | "languageDefined" | "beforeWhitespace" | "never",
+    autoClosingQuotes: "always" as "always" | "languageDefined" | "beforeWhitespace" | "never",
+    autoIndent: "full" as "none" | "keep" | "brackets" | "advanced" | "full",
+    renderWhitespace: "selection" as "none" | "boundary" | "selection" | "trailing" | "all",
   }
 
   return (
