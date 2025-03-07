@@ -33,13 +33,9 @@ export default function CodeEditor({
       setFontSize(window.innerWidth < 640 ? 12 : 14)
     }
 
-    // Set initial font size
     handleResize()
-
-    // Add event listener
     window.addEventListener("resize", handleResize)
 
-    // Clean up
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
@@ -48,7 +44,7 @@ export default function CodeEditor({
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
     wordWrap: "on" as "on" | "off" | "wordWrapColumn" | "bounded",
-    lineNumbers: "on" as "on" | "off" | "relative" | "interval" | ((lineNumber: number) => string),
+    lineNumbers: "on" as "on" | "off" | "relative" | "interval",
     tabSize: 2,
     automaticLayout: true,
     quickSuggestions: true,
@@ -62,7 +58,6 @@ export default function CodeEditor({
 
   return (
     <div className="w-full md:w-1/2 flex flex-col h-[300px] sm:h-[400px] md:h-auto">
-      {/* Tabs */}
       <div className="flex border-b border-[#2d2d2d] overflow-x-auto">
         {["html", "css", "js"].map((tab) => (
           <button
@@ -79,7 +74,6 @@ export default function CodeEditor({
         ))}
       </div>
 
-      {/* Editor */}
       <div className="flex-1 relative">
         <div className="absolute inset-0">
           {activeTab === "html" && (
@@ -120,4 +114,3 @@ export default function CodeEditor({
     </div>
   )
 }
-
